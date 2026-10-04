@@ -5,17 +5,19 @@ import {
   FinanceScreen,
   HomeScreen,
   PlannerScreen,
+  PlaylistTrackerScreen,
   RemindersScreen,
   TodoScreen,
 } from "./phone/screens";
 import { cn } from "@/lib/utils";
 
 const screens: { label: string; node: ReactNode }[] = [
-  { label: "Planner",   node: <PlannerScreen />   },
-  { label: "Finance",   node: <FinanceScreen />   },
-  { label: "Home",      node: <HomeScreen />      },
-  { label: "To-Do's",   node: <TodoScreen />      },
-  { label: "Reminders", node: <RemindersScreen /> },
+  { label: "Planner",          node: <PlannerScreen />         },
+  { label: "Finance",          node: <FinanceScreen />         },
+  { label: "Home",             node: <HomeScreen />            },
+  { label: "To-Do's",          node: <TodoScreen />            },
+  { label: "Reminders",        node: <RemindersScreen />       },
+  { label: "Playlist Tracker", node: <PlaylistTrackerScreen /> },
 ];
 
 export function ScreensSection() {
@@ -58,24 +60,27 @@ export function ScreensSection() {
               if (d > 2) d -= screens.length;
               if (d < -2) d += screens.length;
               const centered = d === 0;
-              // tighter spacing on mobile
+              // hide phones beyond ±2 slots (only 5 visible at a time)
+              const hidden = Math.abs(d) > 2;
               return (
                 <div
                   key={s.label}
-                  onClick={() => setActive(i)}
+                  onClick={() => !hidden && setActive(i)}
                   className={cn(
                     "absolute left-1/2 flex flex-col items-center transition-all duration-500 ease-out",
-                    !centered && "cursor-pointer",
+                    !centered && !hidden && "cursor-pointer",
+                    hidden && "pointer-events-none",
                   )}
                   style={{
                     top: 10,
                     width: "140px",
+                    opacity: hidden ? 0 : 1,
                     transform: `translate(-50%, 0)
                       translateX(calc(${d} * clamp(4.5rem, 10vw, 8rem)))
                       translateY(${Math.abs(d) * 12}px)
                       rotate(${d * 7}deg)
                       scale(${centered ? 1.15 : 0.9})`,
-                    zIndex: 20 - Math.abs(d),
+                    zIndex: hidden ? 0 : 20 - Math.abs(d),
                   }}
                 >
                   <PhoneFrame className="w-full">{s.node}</PhoneFrame>
@@ -102,22 +107,26 @@ export function ScreensSection() {
             if (d > 2) d -= screens.length;
             if (d < -2) d += screens.length;
             const centered = d === 0;
+            // hide phones beyond ±2 slots (only 5 visible at a time)
+            const hidden = Math.abs(d) > 2;
             return (
               <div
                 key={s.label}
-                onClick={() => setActive(i)}
+                onClick={() => !hidden && setActive(i)}
                 className={cn(
                   "absolute left-1/2 flex w-[190px] flex-col items-center transition-all duration-500 ease-out",
-                  !centered && "cursor-pointer",
+                  !centered && !hidden && "cursor-pointer",
+                  hidden && "pointer-events-none",
                 )}
                 style={{
                   top: 30,
+                  opacity: hidden ? 0 : 1,
                   transform: `translate(-50%, 0)
                     translateX(calc(${d} * clamp(6rem, 13vw, 12rem)))
                     translateY(${Math.abs(d) * 14}px)
                     rotate(${d * 7}deg)
                     scale(${centered ? 1.18 : 0.96})`,
-                  zIndex: 20 - Math.abs(d),
+                  zIndex: hidden ? 0 : 20 - Math.abs(d),
                 }}
               >
                 <PhoneFrame className="w-full">{s.node}</PhoneFrame>

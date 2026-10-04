@@ -1,8 +1,9 @@
-import homescreenImg   from "@/assets/MobileScreens/home.png";
-import plannerImg      from "@/assets/MobileScreens/planner.png";
-import financeImg      from "@/assets/MobileScreens/finance.png";
-import todosImg        from "@/assets/MobileScreens/to-Dos.png";
-import remindersImg    from "@/assets/MobileScreens/reminders.png";
+import homescreenImg      from "@/assets/MobileScreens/home.png";
+import plannerImg         from "@/assets/MobileScreens/planner.png";
+import financeImg         from "@/assets/MobileScreens/finance.png";
+import todosImg           from "@/assets/MobileScreens/to-Dos.png";
+import remindersImg       from "@/assets/MobileScreens/reminders.png";
+import playlistTrackerImg from "@/assets/mobileScreens/playlist-tracker.jpeg";
 
 function ScreenImage({ src, alt }: { src: string; alt: string }) {
   return (
@@ -33,4 +34,8 @@ export function TodoScreen() {
 
 export function RemindersScreen() {
   return <ScreenImage src={remindersImg} alt="DIMI Reminders screen" />;
+}
+
+export function PlaylistTrackerScreen() {
+  return <ScreenImage src={playlistTrackerImg} alt="DIMI Playlist Tracker screen" />;
 }
