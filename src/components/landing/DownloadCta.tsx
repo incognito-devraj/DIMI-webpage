@@ -33,7 +33,8 @@ export function DownloadCta() {
           </div>
           <div className="flex flex-col gap-3">
             <a
-              href="#"
+              href="https://github.com/incognito-devraj/DIMI/releases/latest/download/DIMI.apk"
+              download
               className="inline-flex items-center justify-center gap-3 rounded-full bg-primary py-2.5 pl-3 pr-6 text-primary-foreground shadow-[0_14px_30px_-10px] shadow-primary/70 transition hover:-translate-y-0.5"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/15">
@@ -47,7 +48,9 @@ export function DownloadCta() {
               </span>
             </a>
             <a
-              href="#"
+              href="https://github.com/incognito-devraj/DIMI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-card px-6 py-3.5 text-sm font-bold ring-1 ring-border transition hover:bg-accent"
             >
               <Github className="h-4 w-4" />

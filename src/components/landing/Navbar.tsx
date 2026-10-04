@@ -138,7 +138,8 @@ export function Navbar() {
 
         {/* Download CTA */}
         <a
-          href="#download"
+          href="https://github.com/incognito-devraj/DIMI/releases/latest/download/DIMI.apk"
+          download
           className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-3 py-2
                      text-sm font-bold text-primary-foreground shadow-[0_8px_20px_-8px]
                      shadow-primary/60 transition-all duration-200 hover:-translate-y-0.5 sm:px-4"

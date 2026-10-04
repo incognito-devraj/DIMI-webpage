@@ -81,7 +81,8 @@ export function Hero() {
 
             {/* download button */}
             <a
-              href="#download"
+              href="https://github.com/incognito-devraj/DIMI/releases/latest/download/DIMI.apk"
+              download
               className="inline-flex items-center gap-2 rounded-full bg-primary py-2 pl-2 pr-5
                          text-primary-foreground shadow-[0_14px_30px_-10px] shadow-primary/70
                          transition hover:-translate-y-0.5 sm:py-2.5 sm:pl-2.5 sm:pr-6"
