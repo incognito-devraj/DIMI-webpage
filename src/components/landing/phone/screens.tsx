@@ -1,8 +1,8 @@
-import homescreenImg      from "@/assets/MobileScreens/home.png";
-import plannerImg         from "@/assets/MobileScreens/planner.png";
-import financeImg         from "@/assets/MobileScreens/finance.png";
-import todosImg           from "@/assets/MobileScreens/to-Dos.png";
-import remindersImg       from "@/assets/MobileScreens/reminders.png";
+import homescreenImg      from "@/assets/mobileScreens/home.png";
+import plannerImg         from "@/assets/mobileScreens/planner.png";
+import financeImg         from "@/assets/mobileScreens/finance.png";
+import todosImg           from "@/assets/mobileScreens/to-Dos.png";
+import remindersImg       from "@/assets/mobileScreens/reminders.png";
 import playlistTrackerImg from "@/assets/mobileScreens/playlist-tracker.jpeg";
 
 function ScreenImage({ src, alt }: { src: string; alt: string }) {
