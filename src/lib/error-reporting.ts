@@ -1,0 +1,39 @@
+/**
+ * Generic error reporting utility.
+ * Forwards errors to any window-level error tracking hook that may be configured
+ * (e.g. Sentry, Datadog RUM). Falls back silently if nothing is wired up.
+ */
+
+type ErrorReporterOptions = {
+  mechanism?: "manual" | "onerror" | "unhandledrejection" | "react_error_boundary";
+  handled?: boolean;
+  severity?: "error" | "warning" | "info";
+};
+
+type ErrorEvents = {
+  captureException?: (
+    error: unknown,
+    context?: Record<string, unknown>,
+    options?: ErrorReporterOptions,
+  ) => void;
+};
+
+declare global {
+  interface Window {
+    __errorEvents?: ErrorEvents;
+  }
+}
+
+export function reportError(error: unknown, context: Record<string, unknown> = {}) {
+  if (typeof window === "undefined") return;
+
+  window.__errorEvents?.captureException?.(error, {
+    source: "react_error_boundary",
+    route: window.location.pathname,
+    ...context,
+  }, {
+    mechanism: "react_error_boundary",
+    handled: false,
+    severity: "error",
+  });
+}

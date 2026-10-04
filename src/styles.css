@@ -1,0 +1,101 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DIMI design system — warm cream paper, amber primary, soft colored accents.
+ * All colors are oklch tokens; components never hardcode color utilities.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-leaf: var(--leaf);
+  --color-sky: var(--sky);
+  --color-rose: var(--rose);
+  --color-gold: var(--gold);
+  --color-peach: var(--peach);
+  --color-plum: var(--plum);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.978 0.017 85);
+  --foreground: oklch(0.28 0.035 55);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.035 55);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.035 55);
+  --primary: oklch(0.775 0.155 68);
+  --primary-foreground: oklch(0.24 0.05 50);
+  --secondary: oklch(0.95 0.035 80);
+  --secondary-foreground: oklch(0.3 0.05 55);
+  --muted: oklch(0.95 0.02 85);
+  --muted-foreground: oklch(0.52 0.03 65);
+  --accent: oklch(0.945 0.045 78);
+  --accent-foreground: oklch(0.3 0.05 55);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 85);
+  --border: oklch(0.915 0.02 82);
+  --input: oklch(0.915 0.02 82);
+  --ring: oklch(0.775 0.155 68);
+  --ink: oklch(0.235 0.03 55);
+  --leaf: oklch(0.65 0.15 150);
+  --sky: oklch(0.66 0.13 235);
+  --rose: oklch(0.62 0.2 27);
+  --gold: oklch(0.8 0.16 85);
+  --peach: oklch(0.94 0.045 75);
+  --plum: oklch(0.6 0.16 320);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--primary) 30%, transparent);
+  }
+}
