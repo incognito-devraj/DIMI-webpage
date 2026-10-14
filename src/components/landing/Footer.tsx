@@ -1,4 +1,4 @@
-import { Github, Heart, Instagram, Linkedin, Mail } from "lucide-react";
+import { Github, Heart, Instagram, Linkedin, Mail, XIcon } from "lucide-react";
 import finalLogo from "@/assets/FINAL LOGO.png";
 
 const textLinks = [
@@ -9,6 +9,7 @@ const textLinks = [
 
 const socials = [
   { icon: Github,    href: "https://github.com/incognito-devraj",       label: "GitHub"    },
+  { icon: XIcon,     href: "https://x.com/SecretSanju",                 label: "X"         },
   { icon: Instagram, href: "https://instagram.com/devraj.om",           label: "Instagram" },
   { icon: Linkedin,  href: "https://www.linkedin.com/in/devrajom/",     label: "LinkedIn"  },
   { icon: Mail,      href: "mailto:devrajmukherjee.om@gmail.com",       label: "Email"     },
